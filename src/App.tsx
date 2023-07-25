@@ -1,25 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { Space, Tag } from 'antd';
+
+const { CheckableTag } = Tag;
+
+const tagsData = ['Movies', 'Books', 'Music', 'Sports'];
 import './App.css';
 
 function App() {
+  const [selectedTags, setSelectedTags] = useState<string[]>(['Books']);
+
+  const handleChange = (tag: string, checked: boolean) => {
+    const nextSelectedTags = checked
+      ? [...selectedTags, tag]
+      : selectedTags.filter((t) => t !== tag);
+    console.log('You are interested in: ', nextSelectedTags);
+    setSelectedTags(nextSelectedTags);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <span style={{ marginRight: 8 }}>Categories:</span>
+      <Space size={[0, 8]} wrap>
+        {tagsData.map((tag) => (
+          <CheckableTag
+            key={tag}
+            checked={selectedTags.includes(tag)}
+            onChange={(checked) => handleChange(tag, checked)}
+          >
+            {tag}
+          </CheckableTag>
+        ))}
+      </Space>
+    </>
   );
 }
 
