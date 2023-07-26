@@ -1,0 +1,31 @@
+@import './variables';
+@import './normalize';
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 2rem;
+  background-color: $color-white;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main {
+  flex: 1 1 auto;
+}
+
+.container {
+  max-width: 118rem;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+h1 {
+  font-size: 4rem;
+}
