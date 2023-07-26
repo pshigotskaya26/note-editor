@@ -1,8 +1,21 @@
+@import '../../styles/variables';
+
 .header {
+  background-color: $color-brown;
+  border-bottom: 0.1rem solid $color-gray-light;
   &__container {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 10rem;
+  }
+
+  &__title {
+    color: $color-primery;
+    text-align: center;
+
+    & span {
+      color: $color-white;
+    }
   }
 }

@@ -1,7 +1,9 @@
 @import './variables';
+@import './fonts';
 @import './normalize';
 
 html {
+  @include font-regular();
   font-size: 10px;
 }
 
