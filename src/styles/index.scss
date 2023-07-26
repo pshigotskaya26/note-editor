@@ -1,5 +1,6 @@
 @import './variables';
 @import './fonts';
+@import './icons';
 @import './normalize';
 
 html {
@@ -30,4 +31,8 @@ body {
 
 h1 {
   font-size: 4rem;
+}
+
+.link {
+  color: $color-primery;
 }
