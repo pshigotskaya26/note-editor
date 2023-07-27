@@ -1,5 +1,6 @@
 import React from 'react';
 import './form.scss';
+import TagsList from '../tagsList';
 
 const Form = () => {
   return (
@@ -26,6 +27,10 @@ const Form = () => {
                 <textarea className="textarea form-textarea" rows={5}></textarea>
               </div>
               {/* <div>Error</div> */}
+            </div>
+
+            <div className="elements">
+              <TagsList />
             </div>
           </div>
           <div className="form__buttons">
