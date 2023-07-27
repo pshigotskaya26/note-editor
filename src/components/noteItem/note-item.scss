@@ -1,0 +1,53 @@
+@import '../../styles/variables';
+
+.note-item {
+  display: flex;
+  justify-content: space-between;
+  border: 0.1rem solid $color-gray;
+  align-items: center;
+  padding: 1.5rem 1rem;
+
+  &__order {
+    width: 8rem;
+    text-align: center;
+  }
+
+  &__controls {
+    width: 10rem;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    flex: 1 1 auto;
+    padding: 0 1rem;
+  }
+
+  &__description {
+    text-align: justify;
+    color: $color-text;
+  }
+  &__icons {
+    display: flex;
+    column-gap: 1rem;
+    justify-content: center;
+  }
+
+  &__edit-icon {
+    color: $color-primery;
+  }
+
+  &__delete_icon {
+    color: $color-brown;
+  }
+
+  &__edit-icon,
+  &__delete-icon {
+    cursor: pointer;
+  }
+
+  &__buttons {
+    text-align: center;
+  }
+}
