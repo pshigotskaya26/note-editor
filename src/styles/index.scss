@@ -2,6 +2,7 @@
 @import './fonts';
 @import './icons';
 @import './normalize';
+@import './buttons.scss';
 
 html {
   @include font-regular();
@@ -19,18 +20,18 @@ body {
   height: 100vh;
 }
 
-.main {
-  flex: 1 1 auto;
-}
-
 .container {
   max-width: 118rem;
   margin: 0 auto;
-  padding: 0 4rem;
+  padding: 0 1rem;
 }
 
 h1 {
   font-size: 4rem;
+}
+
+h2 {
+  font-size: 3rem;
 }
 
 .link {

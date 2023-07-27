@@ -1,0 +1,36 @@
+@import '../../styles/variables';
+
+.form {
+  padding: 2rem 0;
+  background-color: $color-gray-light;
+  border-bottom: 0.1rem solid $color-gray;
+
+  &__title {
+    padding-bottom: 2rem;
+  }
+
+  &__content {
+    display: flex;
+    column-gap: 3rem;
+  }
+
+  &__elements {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    flex: 0 1 40rem;
+  }
+
+  &__buttons {
+    padding-top: 3rem;
+  }
+}
+
+.elements {
+  &__title,
+  &__description {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0.5rem;
+  }
+}

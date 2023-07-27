@@ -1,0 +1,31 @@
+.button {
+  padding: 1rem 2rem;
+  color: $color-white;
+  font-size: 2rem;
+  border-bottom: 0.3rem solid $color-primery-dark;
+  border-radius: 0.4rem;
+  background-color: $color-primery;
+  cursor: pointer;
+  transition: 0.3s ease-out;
+
+  &:hover {
+    background-color: $color-primery-dark;
+  }
+}
+
+.input-text {
+  padding: 1rem 1.5rem;
+  border: 0.1rem solid $color-gray-dark;
+}
+
+.label {
+  padding-bottom: 1rem;
+  font-size: 1.7rem;
+  color: $color-gray-dark;
+}
+
+.textarea {
+  padding: 1rem 1.5rem;
+  border: 0.1rem solid $color-gray-dark;
+  resize: none;
+}
