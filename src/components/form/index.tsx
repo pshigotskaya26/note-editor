@@ -2,7 +2,23 @@ import React from 'react';
 import './form.scss';
 import TagsList from '../tagsList';
 
+import { useActions } from '../../hooks/useActions';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
+
 const Form = () => {
+  const { newTitleBody } = useTypedSelector((state) => state.notesPage);
+  console.log('newTitleBody: ', newTitleBody);
+
+  const { setNewTitle } = useActions();
+
+  //const { fetchNewTitle } = useActions();
+
+  const onNewMessageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const body = e.target.value;
+    setNewTitle(body);
+    // fetchNewTitle(body);
+  };
+
   return (
     <section className="form">
       <div className="container">
@@ -14,7 +30,13 @@ const Form = () => {
                 <label htmlFor="title" className="label form-label">
                   Enter a note title:
                 </label>
-                <input id="title" className="input-text" type="text" />
+                <input
+                  id="title"
+                  className="input-text"
+                  type="text"
+                  value={newTitleBody}
+                  onChange={onNewMessageChange}
+                />
               </div>
               {/* <div>Error</div> */}
             </div>
@@ -24,7 +46,7 @@ const Form = () => {
                 <label htmlFor="description" className="label form-label">
                   Enter a note text:
                 </label>
-                <textarea className="textarea form-textarea" rows={5}></textarea>
+                <textarea className="textarea" rows={5}></textarea>
               </div>
               {/* <div>Error</div> */}
             </div>

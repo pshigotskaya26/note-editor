@@ -1,16 +1,19 @@
 import { INotesState, NotesActions, NotesActionTypes } from '../types/notes';
 
 const initialState: INotesState = {
-  newTitleBody: 'Enter the title of the note',
-  newDescriptionBody: 'Enter the text',
+  newTitleBody: '',
+  newDescriptionBody: '',
   newTags: [],
+  isNewErrorTitle: false,
+  isNewErrorDescription: false,
   Notes: [],
   Tags: [],
   choosenTags: [],
 };
 
-const notesReducer = (state = initialState, action: NotesActions) => {
+const notesReducer = (state = initialState, action: NotesActions): INotesState => {
   switch (action.type) {
+    /*
     case NotesActionTypes.ADD_NOTE:
       const newNote = {
         id: state.Notes.length + 1,
@@ -26,7 +29,19 @@ const notesReducer = (state = initialState, action: NotesActions) => {
         newDescriptionBody: '',
         newTags: [],
         Notes: [...state.Notes, newNote],
-        Tags: [...new Set(state.Tags.concat(newNote.tags))],
+        Tags: [...new Set([...state.Tags].concat(newNote.tags))],
+      };
+*/
+    case NotesActionTypes.SET_NEW_TITLE:
+      return {
+        ...state,
+        newTitleBody: action.payload,
+      };
+
+    case NotesActionTypes.SET_NEW_DESCRIPTION:
+      return {
+        ...state,
+        newDescriptionBody: action.payload,
       };
     default:
       return state;
