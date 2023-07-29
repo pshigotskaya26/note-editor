@@ -29,7 +29,7 @@ interface IAddNoteAction {
   type: NotesActionTypes.ADD_NOTE;
 }
 */
-interface ISetNewTitle {
+export interface ISetNewTitle {
   type: NotesActionTypes.SET_NEW_TITLE;
   payload: string;
 }

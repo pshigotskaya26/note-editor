@@ -2,23 +2,13 @@ import React from 'react';
 import './form.scss';
 import TagsList from '../tagsList';
 
-import { useActions } from '../../hooks/useActions';
-import { useTypedSelector } from '../../hooks/useTypedSelector';
+interface FormProps {
+  currentNewTitle: string;
+  setNewTitle: (value: string) => void;
+  onNewTitleChanged: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
-const Form = () => {
-  const { newTitleBody } = useTypedSelector((state) => state.notesPage);
-  console.log('newTitleBody: ', newTitleBody);
-
-  const { setNewTitle } = useActions();
-
-  //const { fetchNewTitle } = useActions();
-
-  const onNewMessageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const body = e.target.value;
-    setNewTitle(body);
-    // fetchNewTitle(body);
-  };
-
+const Form: React.FC<FormProps> = (props) => {
   return (
     <section className="form">
       <div className="container">
@@ -34,8 +24,8 @@ const Form = () => {
                   id="title"
                   className="input-text"
                   type="text"
-                  value={newTitleBody}
-                  onChange={onNewMessageChange}
+                  value={props.currentNewTitle}
+                  onChange={props.onNewTitleChanged}
                 />
               </div>
               {/* <div>Error</div> */}

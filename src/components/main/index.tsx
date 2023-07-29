@@ -1,12 +1,13 @@
 import React from 'react';
 import './main.scss';
-import Form from '../form';
+
+import FormContainer from '../form/formContainer';
 //import NotesContent from '../notesContent';
 
 const Main = () => {
   return (
     <main className="main">
-      <Form />
+      <FormContainer />
       {/* <NotesContent /> */}
     </main>
   );
