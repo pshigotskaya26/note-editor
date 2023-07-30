@@ -4,8 +4,11 @@ import TagsList from '../tagsList';
 
 interface FormProps {
   currentNewTitle: string;
+  currentNewDescription: string;
   setNewTitle: (value: string) => void;
+  setNewDescription: (value: string) => void;
   onNewTitleChanged: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onNewDescriptionChanged: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
 const Form: React.FC<FormProps> = (props) => {
@@ -36,7 +39,12 @@ const Form: React.FC<FormProps> = (props) => {
                 <label htmlFor="description" className="label form-label">
                   Enter a note text:
                 </label>
-                <textarea className="textarea" rows={5}></textarea>
+                <textarea
+                  className="textarea"
+                  rows={5}
+                  defaultValue={props.currentNewDescription}
+                  onChange={props.onNewDescriptionChanged}
+                />
               </div>
               {/* <div>Error</div> */}
             </div>

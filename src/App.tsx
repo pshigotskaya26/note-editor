@@ -5,9 +5,10 @@ import Main from './components/main';
 import { useActions } from './hooks/useActions';
 
 const App = () => {
-  const { fetchNewTitle } = useActions();
+  const { fetchNewTitle, fetchNewDescription } = useActions();
   useEffect(() => {
     fetchNewTitle();
+    fetchNewDescription();
   }, []);
   return (
     <div className="App">
