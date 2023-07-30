@@ -1,13 +1,17 @@
 import { Dispatch } from 'redux';
 import { NotesActionTypes, NotesActions } from '../types/notes';
+import { notesAPI } from '../../api/notesAPI';
 
 export const setNewTitle = (newTitle: string) => ({
   type: NotesActionTypes.SET_NEW_TITLE,
   payload: newTitle,
 });
 
-export const fetchNewTitle = (value: string) => {
+export const fetchNewTitle = () => {
   return (dispatch: Dispatch<NotesActions>) => {
-    dispatch(setNewTitle(value));
+    const newTtile = notesAPI.getNewTitle();
+    if (newTtile !== '') {
+      dispatch(setNewTitle(newTtile));
+    }
   };
 };
