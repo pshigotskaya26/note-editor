@@ -27,6 +27,8 @@ const FormContainer: React.FC<FormContainerProps> = (props) => {
 const mapStateToProps = (state: RootState) => ({
   currentNewTitle: state.notesPage.newTitleBody,
   currentNewDescription: state.notesPage.newDescriptionBody,
+  isNewErrorTitle: state.notesPage.isNewErrorTitle,
+  isNewErrorDescription: state.notesPage.isNewErrorDescription,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<NotesActions>) => ({
