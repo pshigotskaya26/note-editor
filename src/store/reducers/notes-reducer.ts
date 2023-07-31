@@ -45,6 +45,18 @@ const notesReducer = (state = initialState, action: NotesActions): INotesState =
         ...state,
         newDescriptionBody: action.payload,
       };
+
+    case NotesActionTypes.TOGGLE_IS_NEW_ERROR_TITLE:
+      return {
+        ...state,
+        isNewErrorTitle: action.payload,
+      };
+
+    case NotesActionTypes.TOGGLE_IS_NEW_ERROR_DESCRIPTION:
+      return {
+        ...state,
+        isNewErrorDescription: action.payload,
+      };
     default:
       return state;
   }

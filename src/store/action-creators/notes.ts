@@ -40,3 +40,13 @@ export const updateNewDescription = (value: string) => {
     });
   };
 };
+
+export const toggleIsNewErrorTitle = (value: boolean) => ({
+  type: NotesActionTypes.TOGGLE_IS_NEW_ERROR_TITLE,
+  payload: value,
+});
+
+export const toggleIsNewErrorDescription = (value: boolean) => ({
+  type: NotesActionTypes.TOGGLE_IS_NEW_ERROR_DESCRIPTION,
+  payload: value,
+});

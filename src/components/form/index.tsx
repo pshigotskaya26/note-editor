@@ -1,17 +1,18 @@
 import React from 'react';
 import './form.scss';
 import TagsList from '../tagsList';
-//import Error from '../error';
-//import ErrorMesages from '../../types/enums/errorValues';
+import Error from '../error';
+import ErrorMesages from '../../types/enums/errorValues';
 //import { NotesActions } from '../../store/types/notes';
 
 interface FormProps {
   currentNewTitle: string;
   currentNewDescription: string;
-  //isNewErrorTitle: boolean;
-  //isNewErrorDescription: boolean;
+  isNewErrorTitle: boolean;
+  isNewErrorDescription: boolean;
   onNewTitleChanged: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onNewDescriptionChanged: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  onAddNoteClick: () => void;
 }
 
 const Form: React.FC<FormProps> = (props) => {
@@ -34,9 +35,7 @@ const Form: React.FC<FormProps> = (props) => {
                   onChange={props.onNewTitleChanged}
                 />
               </div>
-              {/* {props.isNewErrorTitle && <Error message={ErrorMesages.ERROR__TITLE_MESSAGE} />} */}
-
-              {/* <div>Error</div> */}
+              {props.isNewErrorTitle && <Error message={ErrorMesages.ERROR__TITLE_MESSAGE} />}
             </div>
 
             <div className="elements">
@@ -51,10 +50,9 @@ const Form: React.FC<FormProps> = (props) => {
                   onChange={props.onNewDescriptionChanged}
                 />
               </div>
-              {/* {props.isNewErrorDescription && (
+              {props.isNewErrorDescription && (
                 <Error message={ErrorMesages.ERROR__DESCRIPTION_MESSAGE} />
-              )} */}
-              {/* <div>Error</div> */}
+              )}
             </div>
 
             <div className="elements">
@@ -62,7 +60,9 @@ const Form: React.FC<FormProps> = (props) => {
             </div>
           </div>
           <div className="form__buttons">
-            <button className="button">Add note</button>
+            <button className="button" onClick={props.onAddNoteClick}>
+              Add note
+            </button>
           </div>
         </div>
       </div>
