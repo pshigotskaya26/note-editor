@@ -33,12 +33,14 @@ const notesReducer = (state = initialState, action: NotesActions): INotesState =
       };
 */
     case NotesActionTypes.SET_NEW_TITLE:
+    case NotesActionTypes.UPDATE_NEW_TITLE:
       return {
         ...state,
         newTitleBody: action.payload,
       };
 
     case NotesActionTypes.SET_NEW_DESCRIPTION:
+    case NotesActionTypes.UPDATE_NEW_DESCRIPTION:
       return {
         ...state,
         newDescriptionBody: action.payload,

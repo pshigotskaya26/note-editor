@@ -1,17 +1,15 @@
 import React from 'react';
 import './form.scss';
 import TagsList from '../tagsList';
-import Error from '../error';
-import ErrorMesages from '../../types/enums/errorValues';
+//import Error from '../error';
+//import ErrorMesages from '../../types/enums/errorValues';
+//import { NotesActions } from '../../store/types/notes';
 
 interface FormProps {
   currentNewTitle: string;
   currentNewDescription: string;
-  isNewErrorTitle: boolean;
-  isNewErrorDescription: boolean;
-
-  setNewTitle: (value: string) => void;
-  setNewDescription: (value: string) => void;
+  //isNewErrorTitle: boolean;
+  //isNewErrorDescription: boolean;
   onNewTitleChanged: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onNewDescriptionChanged: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
@@ -32,11 +30,11 @@ const Form: React.FC<FormProps> = (props) => {
                   id="title"
                   className="input-text"
                   type="text"
-                  value={props.currentNewTitle}
+                  defaultValue={props.currentNewTitle}
                   onChange={props.onNewTitleChanged}
                 />
               </div>
-              {props.isNewErrorTitle && <Error message={ErrorMesages.ERROR__TITLE_MESSAGE} />}
+              {/* {props.isNewErrorTitle && <Error message={ErrorMesages.ERROR__TITLE_MESSAGE} />} */}
 
               {/* <div>Error</div> */}
             </div>
@@ -53,9 +51,9 @@ const Form: React.FC<FormProps> = (props) => {
                   onChange={props.onNewDescriptionChanged}
                 />
               </div>
-              {props.isNewErrorDescription && (
+              {/* {props.isNewErrorDescription && (
                 <Error message={ErrorMesages.ERROR__DESCRIPTION_MESSAGE} />
-              )}
+              )} */}
               {/* <div>Error</div> */}
             </div>
 
