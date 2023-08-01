@@ -6,8 +6,8 @@ const initialState: INotesState = {
   newTags: [],
   isNewErrorTitle: false,
   isNewErrorDescription: false,
-  Notes: [],
-  Tags: [],
+  notes: [],
+  tags: [],
   choosenTags: [],
 };
 
@@ -56,6 +56,17 @@ const notesReducer = (state = initialState, action: NotesActions): INotesState =
       return {
         ...state,
         isNewErrorDescription: action.payload,
+      };
+
+    case NotesActionTypes.SET_NEW_NOTES:
+      return {
+        ...state,
+        notes: action.payload,
+      };
+    case NotesActionTypes.UPDATE_NOTES:
+      return {
+        ...state,
+        notes: action.payload,
       };
     default:
       return state;

@@ -6,19 +6,20 @@ export interface INotesState {
   newTags: string[];
   isNewErrorTitle: boolean;
   isNewErrorDescription: boolean;
-  Notes: INote[];
-  Tags: string[];
+  notes: INote[];
+  tags: string[];
   choosenTags: string[];
 }
 
 export enum NotesActionTypes {
   SET_NEW_TITLE = 'SET_NEW_TITLE',
   SET_NEW_DESCRIPTION = 'SET_NEW_DESCRIPTION',
+  SET_NEW_NOTES = 'SET_NEW_NOTES',
   UPDATE_NEW_TITLE = 'UPDATE_NEW_TITLE',
   UPDATE_NEW_DESCRIPTION = 'UPDATE_NEW_DESCRIPTION',
+  UPDATE_NOTES = 'UPDATE_NOTES',
   TOGGLE_IS_NEW_ERROR_TITLE = 'TOGGLE_IS_NEW_ERROR_TITLE',
   TOGGLE_IS_NEW_ERROR_DESCRIPTION = 'TOGGLE_IS_NEW_ERROR_DESCRIPTION',
-  //UPDATE_NOTES = 'UPDATE_NOTES',
 }
 
 export interface ISetNewTitle {
@@ -31,6 +32,11 @@ interface ISetNewDescription {
   payload: string;
 }
 
+interface ISetNewNotes {
+  type: NotesActionTypes.SET_NEW_NOTES;
+  payload: INote[];
+}
+
 interface IUpdateNewTitle {
   type: NotesActionTypes.UPDATE_NEW_TITLE;
   payload: string;
@@ -39,6 +45,11 @@ interface IUpdateNewTitle {
 interface IUpdateNewDescription {
   type: NotesActionTypes.UPDATE_NEW_DESCRIPTION;
   payload: string;
+}
+
+interface IUpdateNotes {
+  type: NotesActionTypes.UPDATE_NOTES;
+  payload: INote[];
 }
 
 interface IToggleIsNewErrorTitle {
@@ -54,7 +65,9 @@ interface IToggleIsNewErrorDescription {
 export type NotesActions =
   | ISetNewTitle
   | ISetNewDescription
+  | ISetNewNotes
   | IUpdateNewTitle
   | IUpdateNewDescription
+  | IUpdateNotes
   | IToggleIsNewErrorTitle
   | IToggleIsNewErrorDescription;

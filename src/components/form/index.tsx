@@ -4,8 +4,10 @@ import TagsList from '../tagsList';
 import Error from '../error';
 import ErrorMesages from '../../types/enums/errorValues';
 //import { NotesActions } from '../../store/types/notes';
+import { RootState } from '../../store/reducers';
 
 interface FormProps {
+  currenState: RootState;
   currentNewTitle: string;
   currentNewDescription: string;
   isNewErrorTitle: boolean;
@@ -31,7 +33,7 @@ const Form: React.FC<FormProps> = (props) => {
                   id="title"
                   className="input-text"
                   type="text"
-                  defaultValue={props.currentNewTitle}
+                  value={props.currentNewTitle}
                   onChange={props.onNewTitleChanged}
                 />
               </div>
@@ -46,7 +48,7 @@ const Form: React.FC<FormProps> = (props) => {
                 <textarea
                   className="textarea"
                   rows={5}
-                  defaultValue={props.currentNewDescription}
+                  value={props.currentNewDescription}
                   onChange={props.onNewDescriptionChanged}
                 />
               </div>

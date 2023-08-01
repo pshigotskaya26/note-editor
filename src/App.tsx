@@ -5,11 +5,14 @@ import Main from './components/main';
 import { useActions } from './hooks/useActions';
 
 const App = () => {
-  const { getNewTitle, getNewDescription } = useActions();
+  const { getNewTitle, getNewDescription, getNewNotes } = useActions();
   useEffect(() => {
     getNewTitle();
     getNewDescription();
+    getNewNotes();
+    console.log('effect');
   }, []);
+
   return (
     <div className="App">
       <Header />

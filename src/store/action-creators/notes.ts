@@ -1,6 +1,7 @@
 import { Dispatch } from 'redux';
 import { NotesActionTypes, NotesActions } from '../types/notes';
 import { notesAPI } from '../../api/notesAPI';
+import { INote } from '../../types/interfaces/INote';
 
 export const getNewTitle = () => {
   return (dispatch: Dispatch<NotesActions>) => {
@@ -15,6 +16,16 @@ export const getNewDescription = () => {
     dispatch({
       type: NotesActionTypes.SET_NEW_DESCRIPTION,
       payload: newDescription,
+    });
+  };
+};
+
+export const getNewNotes = () => {
+  return (dispatch: Dispatch<NotesActions>) => {
+    const newNotes = notesAPI.getNewNotes();
+    dispatch({
+      type: NotesActionTypes.SET_NEW_NOTES,
+      payload: newNotes,
     });
   };
 };
@@ -50,3 +61,10 @@ export const toggleIsNewErrorDescription = (value: boolean) => ({
   type: NotesActionTypes.TOGGLE_IS_NEW_ERROR_DESCRIPTION,
   payload: value,
 });
+
+export const addNote = (newNote: INote) => {
+  return (dispatch: Dispatch<NotesActions>) => {
+    const notes = notesAPI.addNewNote(newNote);
+    dispatch({ type: NotesActionTypes.UPDATE_NOTES, payload: notes });
+  };
+};

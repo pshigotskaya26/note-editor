@@ -6,8 +6,10 @@ import {
   updateNewDescription,
   toggleIsNewErrorTitle,
   toggleIsNewErrorDescription,
+  addNote,
 } from '../../store/action-creators/notes';
 import Form from './index';
+import { INote } from '../../types/interfaces/INote';
 
 const FormContainer: React.FC<FormContainerProps> = (props) => {
   const onNewTitleChanged = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -19,16 +21,30 @@ const FormContainer: React.FC<FormContainerProps> = (props) => {
   };
 
   const onAddNoteClick = () => {
-    if (props.currentNewTitle.length === 0) {
-      props.toggleIsNewErrorTitle(true);
-    } else {
-      props.toggleIsNewErrorTitle(false);
-    }
+    props.currentNewTitle.length
+      ? props.toggleIsNewErrorTitle(false)
+      : props.toggleIsNewErrorTitle(true);
+    props.currentNewDescription.length
+      ? props.toggleIsNewErrorDescription(false)
+      : props.toggleIsNewErrorDescription(true);
 
-    if (props.currentNewDescription.length === 0) {
-      props.toggleIsNewErrorDescription(true);
-    } else {
+    if (props.currentNewTitle.length && props.currentNewDescription.length) {
+      props.toggleIsNewErrorTitle(false);
       props.toggleIsNewErrorDescription(false);
+
+      const newNote: INote = {
+        id: 0,
+        title: props.currentNewTitle,
+        description: props.currentNewDescription,
+        isNewErrorNoteTitle: false,
+        isNewErrorNoteDescription: false,
+        tags: [],
+        isEdit: false,
+      };
+
+      props.updateNewTitle('');
+      props.updateNewDescription('');
+      props.addNote(newNote);
     }
   };
 
@@ -43,6 +59,7 @@ const FormContainer: React.FC<FormContainerProps> = (props) => {
 };
 
 const mapStateToProps = (state: RootState) => ({
+  currenState: state,
   currentNewTitle: state.notesPage.newTitleBody,
   currentNewDescription: state.notesPage.newDescriptionBody,
   isNewErrorTitle: state.notesPage.isNewErrorTitle,
@@ -54,6 +71,7 @@ const connector = connect(mapStateToProps, {
   updateNewDescription,
   toggleIsNewErrorTitle,
   toggleIsNewErrorDescription,
+  addNote,
 });
 type FormContainerProps = ConnectedProps<typeof connector>;
 
