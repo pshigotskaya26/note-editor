@@ -1,11 +1,18 @@
 import React from 'react';
 import './notes-list.scss';
 import NoteItem from '../noteItem';
+import { INote } from '../../types/interfaces/INote';
 
-const NotesList = () => {
+interface INotesListProps {
+  notes: INote[];
+}
+
+const NotesList: React.FC<INotesListProps> = (props) => {
   return (
     <div className="notes-list">
-      <NoteItem />
+      {props.notes.map((noteItem: INote) => (
+        <NoteItem key={noteItem.id} />
+      ))}
     </div>
   );
 };

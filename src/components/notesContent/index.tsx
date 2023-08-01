@@ -1,6 +1,6 @@
 import React from 'react';
 import './notes-content.scss';
-import NotesList from '../notesList';
+import NoteListContainer from '../notesList/note-listContainer';
 
 const NotesContent = () => {
   return (
@@ -9,7 +9,7 @@ const NotesContent = () => {
         <h2 className="notes-content__title">Notes List:</h2>
         <div className="notes-content__tags">Block tags for filter</div>
         <div className="notes-content__list">
-          <NotesList />
+          <NoteListContainer />
         </div>
       </div>
     </section>
