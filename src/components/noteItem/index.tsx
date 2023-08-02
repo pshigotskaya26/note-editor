@@ -13,6 +13,7 @@ interface INoteProps {
   tags: string[] | null;
   isEdit: boolean;
   onEditNoteClick: (id: number) => void;
+  onNoteTitleChanged: (event: React.ChangeEvent<HTMLInputElement>, id: number) => void;
   onSaveNote: (id: number) => void;
   onDeleteNoteClick: (id: number) => void;
 }
@@ -23,7 +24,14 @@ const NoteItem: React.FC<INoteProps> = (props) => {
       <div className="note-item__order">{props.index}</div>
       <div className="note-item__content">
         {props.isEdit ? (
-          <input type="text" className="input-text" value={props.title} onChange={() => {}} />
+          <input
+            type="text"
+            className="input-text"
+            value={props.title}
+            onChange={(e) => {
+              props.onNoteTitleChanged(e, props.id);
+            }}
+          />
         ) : (
           <h3 className="note-item__title">{props.title}</h3>
         )}

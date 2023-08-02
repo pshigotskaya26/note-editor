@@ -82,3 +82,10 @@ export const deleteNoteItem = (id: number) => {
     dispatch({ type: NotesActionTypes.UPDATE_NOTES, payload: updatedNotes });
   };
 };
+
+export const updateNoteTitle = (id: number, newTitle: string) => {
+  return (dispatch: Dispatch<NotesActions>) => {
+    const updatedNotes = notesAPI.updateNoteTitle(id, newTitle);
+    dispatch({ type: NotesActionTypes.UPDATE_NOTES, payload: updatedNotes });
+  };
+};

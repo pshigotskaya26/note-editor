@@ -14,7 +14,11 @@ interface INoteItemContainer {
 }
 
 const NoteItemContainer: React.FC<INoteItemContainer> = (props) => {
-  const { toggleIsEditNote, deleteNoteItem } = useActions();
+  const { toggleIsEditNote, deleteNoteItem, updateNoteTitle } = useActions();
+
+  const onNoteTitleChanged = (event: React.ChangeEvent<HTMLInputElement>, id: number) => {
+    updateNoteTitle(id, event.target.value);
+  };
 
   const onEditNoteClick = (id: number) => {
     toggleIsEditNote(id, true);
@@ -31,6 +35,7 @@ const NoteItemContainer: React.FC<INoteItemContainer> = (props) => {
     <NoteItem
       {...props}
       onEditNoteClick={onEditNoteClick}
+      onNoteTitleChanged={onNoteTitleChanged}
       onDeleteNoteClick={onDeleteNoteClick}
       onSaveNote={onSaveNote}
     />

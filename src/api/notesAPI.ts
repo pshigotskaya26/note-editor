@@ -52,4 +52,16 @@ export const notesAPI = {
     this.setNewNotes(updatedNotes);
     return updatedNotes;
   },
+
+  updateNoteTitle(id: number, newTtile: string): INote[] {
+    const notes: INote[] = this.getNewNotes();
+    notes.map((item) => {
+      if (item.id === id) {
+        item.title = newTtile;
+      }
+      return item;
+    });
+    this.setNewNotes(notes);
+    return notes;
+  },
 };
