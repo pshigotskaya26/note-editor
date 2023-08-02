@@ -12,7 +12,8 @@ interface INoteProps {
   isNewErrorNoteDescription: boolean;
   tags: string[] | null;
   isEdit: boolean;
-  onEditNoteClick: (id: number, status: boolean) => void;
+  onEditNoteClick: (id: number) => void;
+  onSaveNote: (id: number) => void;
   onDeleteNoteClick: (id: number) => void;
 }
 
@@ -42,7 +43,7 @@ const NoteItem: React.FC<INoteProps> = (props) => {
             <AiFillEdit
               size={25}
               className="note-item__edit-icon"
-              onClick={() => props.onEditNoteClick(props.id, true)}
+              onClick={() => props.onEditNoteClick(props.id)}
             />
           )}
 
@@ -55,7 +56,11 @@ const NoteItem: React.FC<INoteProps> = (props) => {
           )}
         </div>
         <div className="note-item__buttons">
-          {props.isEdit && <button className="button button_small">Save</button>}
+          {props.isEdit && (
+            <button className="button button_small" onClick={() => props.onSaveNote(props.id)}>
+              Save
+            </button>
+          )}
         </div>
       </div>
     </div>
