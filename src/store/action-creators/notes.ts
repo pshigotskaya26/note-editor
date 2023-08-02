@@ -52,15 +52,45 @@ export const updateNewDescription = (value: string) => {
   };
 };
 
-export const toggleIsNewErrorTitle = (value: boolean) => ({
-  type: NotesActionTypes.TOGGLE_IS_NEW_ERROR_TITLE,
-  payload: value,
-});
+export const getIsNewErrorTitle = () => {
+  return (dispatch: Dispatch<NotesActions>) => {
+    const newIsNewErrorTitle = notesAPI.getIsNewErrorTitle();
+    dispatch({
+      type: NotesActionTypes.TOGGLE_IS_NEW_ERROR_TITLE,
+      payload: Boolean(newIsNewErrorTitle),
+    });
+  };
+};
 
-export const toggleIsNewErrorDescription = (value: boolean) => ({
-  type: NotesActionTypes.TOGGLE_IS_NEW_ERROR_DESCRIPTION,
-  payload: value,
-});
+export const getIsNewErrorDescription = () => {
+  return (dispatch: Dispatch<NotesActions>) => {
+    const newIsNewErrorDescription = notesAPI.getIsNewErrorDescription();
+    dispatch({
+      type: NotesActionTypes.TOGGLE_IS_NEW_ERROR_DESCRIPTION,
+      payload: Boolean(newIsNewErrorDescription),
+    });
+  };
+};
+
+export const toggleIsNewErrorTitle = (value: boolean) => {
+  return (dispatch: Dispatch<NotesActions>) => {
+    const updatedIsNewErrorTitle = notesAPI.toggleIsNewErrorTitle(value);
+    dispatch({
+      type: NotesActionTypes.TOGGLE_IS_NEW_ERROR_TITLE,
+      payload: Boolean(updatedIsNewErrorTitle),
+    });
+  };
+};
+
+export const toggleIsNewErrorDescription = (value: boolean) => {
+  return (dispatch: Dispatch<NotesActions>) => {
+    const updatedIsNewErrorDescription = notesAPI.toggleIsNewErrorDescription(value);
+    dispatch({
+      type: NotesActionTypes.TOGGLE_IS_NEW_ERROR_DESCRIPTION,
+      payload: Boolean(updatedIsNewErrorDescription),
+    });
+  };
+};
 
 export const addNote = (newNote: INote) => {
   return (dispatch: Dispatch<NotesActions>) => {

@@ -18,6 +18,47 @@ export const notesAPI = {
     localStorage.setItem(`${LocalKeys.KEY_NEW_DESCRIPTION}`, value);
   },
 
+  getIsNewErrorTitle() {
+    const isNewErrorTitle = localStorage.getItem(`${LocalKeys.KEY_IS_NEW_ERROR_TITLE}`) ?? '';
+    if (isNewErrorTitle === 'true') {
+      return true;
+    }
+    if (isNewErrorTitle === 'false' || isNewErrorTitle === '') {
+      return false;
+    }
+  },
+
+  setIsNewErrorTitle(value: boolean) {
+    localStorage.setItem(`${LocalKeys.KEY_IS_NEW_ERROR_TITLE}`, `${value}`);
+  },
+
+  toggleIsNewErrorTitle(value: boolean) {
+    this.setIsNewErrorTitle(value);
+    const isNewErrorTitle = this.getIsNewErrorTitle();
+    return isNewErrorTitle;
+  },
+
+  getIsNewErrorDescription() {
+    const isNewErrorDescription =
+      localStorage.getItem(`${LocalKeys.KEY_IS_NEW_ERROR_DESCRIPTION}`) ?? '';
+    if (isNewErrorDescription === 'true') {
+      return true;
+    }
+    if (isNewErrorDescription === 'false' || isNewErrorDescription === '') {
+      return false;
+    }
+  },
+
+  setIsNewErrorDescription(value: boolean) {
+    localStorage.setItem(`${LocalKeys.KEY_IS_NEW_ERROR_DESCRIPTION}`, `${value}`);
+  },
+
+  toggleIsNewErrorDescription(value: boolean) {
+    this.setIsNewErrorDescription(value);
+    const isNewErrorDescription = this.getIsNewErrorDescription();
+    return isNewErrorDescription;
+  },
+
   getNewNotes() {
     const notes: INote[] = JSON.parse(localStorage.getItem(`${LocalKeys.KEY_NOTES}`) ?? '[]');
     return notes;

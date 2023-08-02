@@ -5,10 +5,18 @@ import Main from './components/main';
 import { useActions } from './hooks/useActions';
 
 const App = () => {
-  const { getNewTitle, getNewDescription, getNewNotes } = useActions();
+  const {
+    getNewTitle,
+    getNewDescription,
+    getNewNotes,
+    getIsNewErrorTitle,
+    getIsNewErrorDescription,
+  } = useActions();
   useEffect(() => {
     getNewTitle();
+    getIsNewErrorTitle();
     getNewDescription();
+    getIsNewErrorDescription();
     getNewNotes();
     console.log('effect');
   }, []);
