@@ -11,6 +11,8 @@ const App = () => {
     getNewNotes,
     getIsNewErrorTitle,
     getIsNewErrorDescription,
+    getNewTags,
+    getTags,
   } = useActions();
   useEffect(() => {
     getNewTitle();
@@ -18,6 +20,8 @@ const App = () => {
     getNewDescription();
     getIsNewErrorDescription();
     getNewNotes();
+    getNewTags();
+    getTags();
     console.log('effect');
   }, []);
 

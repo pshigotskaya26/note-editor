@@ -40,15 +40,24 @@ const notesReducer = (state = initialState, action: NotesActions): INotesState =
       };
 
     case NotesActionTypes.SET_NEW_NOTES:
-      return {
-        ...state,
-        notes: action.payload,
-      };
     case NotesActionTypes.UPDATE_NOTES:
       return {
         ...state,
         notes: action.payload,
       };
+
+    case NotesActionTypes.SET_NEW_TAGS:
+      return {
+        ...state,
+        newTags: action.payload,
+      };
+
+    case NotesActionTypes.SET_TAGS:
+      return {
+        ...state,
+        tags: action.payload,
+      };
+
     default:
       return state;
   }

@@ -1,9 +1,9 @@
 import React from 'react';
-import TagsList from '../tagsList';
 import { AiOutlineCloseCircle, AiFillEdit } from 'react-icons/ai';
 import './note-item.scss';
 import Error from '../error';
 import ErrorMesages from '../../types/enums/errorValues';
+import TagListContainer from '../tagsList/tagListContainer';
 
 interface INoteProps {
   id: number;
@@ -64,7 +64,7 @@ const NoteItem: React.FC<INoteProps> = (props) => {
         </div>
 
         <div className="note-item__tags">
-          <TagsList />
+          <TagListContainer />
         </div>
       </div>
       <div className="note-item__controls">

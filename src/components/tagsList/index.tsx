@@ -2,10 +2,14 @@ import React from 'react';
 import Tag from '../tag';
 import './tags-list.scss';
 
-const TagsList = () => {
+interface ITagsListProps {
+  newTags: string[];
+}
+
+const TagsList: React.FC<ITagsListProps> = (props) => {
   return (
     <div className="tags-list">
-      {['tag1', 'tag2', 'tag3', 'tag4', 'tag5', 'tag6'].map((tag: string) => (
+      {props.newTags.map((tag: string) => (
         <Tag key={tag} value={tag} />
       ))}
     </div>

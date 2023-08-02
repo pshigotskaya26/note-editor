@@ -141,4 +141,14 @@ export const notesAPI = {
     this.setNewNotes(notes);
     return notes;
   },
+
+  getNewTags() {
+    const newTags: string[] = JSON.parse(localStorage.getItem(`${LocalKeys.KEY_NEW_TAGS}`) ?? '[]');
+    return newTags;
+  },
+
+  getTags() {
+    const tags: string[] = JSON.parse(localStorage.getItem(`${LocalKeys.KEY_TAGS}`) ?? '[]');
+    return tags;
+  },
 };

@@ -15,6 +15,8 @@ export enum NotesActionTypes {
   SET_NEW_TITLE = 'SET_NEW_TITLE',
   SET_NEW_DESCRIPTION = 'SET_NEW_DESCRIPTION',
   SET_NEW_NOTES = 'SET_NEW_NOTES',
+  SET_NEW_TAGS = 'SET_NEW_TAGS',
+  SET_TAGS = 'SET_TAGS',
   UPDATE_NEW_TITLE = 'UPDATE_NEW_TITLE',
   UPDATE_NEW_DESCRIPTION = 'UPDATE_NEW_DESCRIPTION',
   UPDATE_NOTES = 'UPDATE_NOTES',
@@ -35,6 +37,16 @@ interface ISetNewDescription {
 interface ISetNewNotes {
   type: NotesActionTypes.SET_NEW_NOTES;
   payload: INote[];
+}
+
+interface ISetNewTags {
+  type: NotesActionTypes.SET_NEW_TAGS;
+  payload: string[];
+}
+
+interface ISetTags {
+  type: NotesActionTypes.SET_TAGS;
+  payload: string[];
 }
 
 interface IUpdateNewTitle {
@@ -66,6 +78,8 @@ export type NotesActions =
   | ISetNewTitle
   | ISetNewDescription
   | ISetNewNotes
+  | ISetNewTags
+  | ISetTags
   | IUpdateNewTitle
   | IUpdateNewDescription
   | IUpdateNotes

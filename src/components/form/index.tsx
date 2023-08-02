@@ -1,10 +1,9 @@
 import React from 'react';
 import './form.scss';
-import TagsList from '../tagsList';
 import Error from '../error';
 import ErrorMesages from '../../types/enums/errorValues';
-//import { NotesActions } from '../../store/types/notes';
 import { RootState } from '../../store/reducers';
+import TagListContainer from '../tagsList/tagListContainer';
 
 interface FormProps {
   currenState: RootState;
@@ -58,7 +57,7 @@ const Form: React.FC<FormProps> = (props) => {
             </div>
 
             <div className="elements">
-              <TagsList />
+              <TagListContainer />
             </div>
           </div>
           <div className="form__buttons">

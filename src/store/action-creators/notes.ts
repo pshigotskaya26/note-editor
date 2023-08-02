@@ -140,3 +140,25 @@ export const updateNoteDescription = (id: number, newDescription: string) => {
     dispatch({ type: NotesActionTypes.UPDATE_NOTES, payload: updatedNotes });
   };
 };
+
+export const getNewTags = () => {
+  return (dispatch: Dispatch<NotesActions>) => {
+    const newTags = notesAPI.getNewTags();
+
+    dispatch({
+      type: NotesActionTypes.SET_NEW_TAGS,
+      payload: newTags,
+    });
+  };
+};
+
+export const getTags = () => {
+  return (dispatch: Dispatch<NotesActions>) => {
+    const tags = notesAPI.getTags();
+
+    dispatch({
+      type: NotesActionTypes.SET_TAGS,
+      payload: tags,
+    });
+  };
+};
