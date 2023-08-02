@@ -76,6 +76,20 @@ export const toggleIsEditNote = (id: number, status: boolean) => {
   };
 };
 
+export const toggleIsNewErrorNoteTitle = (id: number, status: boolean) => {
+  return (dispatch: Dispatch<NotesActions>) => {
+    const updatedNotes = notesAPI.toggleIsNewErrorNoteTitle(id, status);
+    dispatch({ type: NotesActionTypes.UPDATE_NOTES, payload: updatedNotes });
+  };
+};
+
+export const toggleIsNewErrorNoteDescription = (id: number, status: boolean) => {
+  return (dispatch: Dispatch<NotesActions>) => {
+    const updatedNotes = notesAPI.toggleIsNewErrorNoteDescription(id, status);
+    dispatch({ type: NotesActionTypes.UPDATE_NOTES, payload: updatedNotes });
+  };
+};
+
 export const deleteNoteItem = (id: number) => {
   return (dispatch: Dispatch<NotesActions>) => {
     const updatedNotes = notesAPI.deleteNoteItem(id);

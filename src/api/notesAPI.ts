@@ -46,6 +46,30 @@ export const notesAPI = {
     return notes;
   },
 
+  toggleIsNewErrorNoteTitle(id: number, status: boolean): INote[] {
+    const notes: INote[] = this.getNewNotes();
+    notes.map((item) => {
+      if (item.id === id) {
+        item.isNewErrorNoteTitle = status;
+      }
+      return item;
+    });
+    this.setNewNotes(notes);
+    return notes;
+  },
+
+  toggleIsNewErrorNoteDescription(id: number, status: boolean): INote[] {
+    const notes: INote[] = this.getNewNotes();
+    notes.map((item) => {
+      if (item.id === id) {
+        item.isNewErrorNoteDescription = status;
+      }
+      return item;
+    });
+    this.setNewNotes(notes);
+    return notes;
+  },
+
   deleteNoteItem(id: number): INote[] {
     const notes: INote[] = this.getNewNotes();
     const updatedNotes = notes.filter((item) => item.id !== id);
