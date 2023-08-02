@@ -89,3 +89,10 @@ export const updateNoteTitle = (id: number, newTitle: string) => {
     dispatch({ type: NotesActionTypes.UPDATE_NOTES, payload: updatedNotes });
   };
 };
+
+export const updateNoteDescription = (id: number, newDescription: string) => {
+  return (dispatch: Dispatch<NotesActions>) => {
+    const updatedNotes = notesAPI.updateNoteDescription(id, newDescription);
+    dispatch({ type: NotesActionTypes.UPDATE_NOTES, payload: updatedNotes });
+  };
+};

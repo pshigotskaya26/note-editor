@@ -14,6 +14,7 @@ interface INoteProps {
   isEdit: boolean;
   onEditNoteClick: (id: number) => void;
   onNoteTitleChanged: (event: React.ChangeEvent<HTMLInputElement>, id: number) => void;
+  onNoteDescriptionChanged: (event: React.ChangeEvent<HTMLTextAreaElement>, id: number) => void;
   onSaveNote: (id: number) => void;
   onDeleteNoteClick: (id: number) => void;
 }
@@ -36,7 +37,14 @@ const NoteItem: React.FC<INoteProps> = (props) => {
           <h3 className="note-item__title">{props.title}</h3>
         )}
         {props.isEdit ? (
-          <textarea className="textarea" value={props.description} rows={5} onChange={() => {}} />
+          <textarea
+            className="textarea"
+            value={props.description}
+            rows={5}
+            onChange={(e) => {
+              props.onNoteDescriptionChanged(e, props.id);
+            }}
+          />
         ) : (
           <div className="note-item__description">{props.description}</div>
         )}

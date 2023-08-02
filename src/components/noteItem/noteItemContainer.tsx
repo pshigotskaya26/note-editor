@@ -14,10 +14,14 @@ interface INoteItemContainer {
 }
 
 const NoteItemContainer: React.FC<INoteItemContainer> = (props) => {
-  const { toggleIsEditNote, deleteNoteItem, updateNoteTitle } = useActions();
+  const { toggleIsEditNote, deleteNoteItem, updateNoteTitle, updateNoteDescription } = useActions();
 
   const onNoteTitleChanged = (event: React.ChangeEvent<HTMLInputElement>, id: number) => {
     updateNoteTitle(id, event.target.value);
+  };
+
+  const onNoteDescriptionChanged = (event: React.ChangeEvent<HTMLTextAreaElement>, id: number) => {
+    updateNoteDescription(id, event.target.value);
   };
 
   const onEditNoteClick = (id: number) => {
@@ -36,6 +40,7 @@ const NoteItemContainer: React.FC<INoteItemContainer> = (props) => {
       {...props}
       onEditNoteClick={onEditNoteClick}
       onNoteTitleChanged={onNoteTitleChanged}
+      onNoteDescriptionChanged={onNoteDescriptionChanged}
       onDeleteNoteClick={onDeleteNoteClick}
       onSaveNote={onSaveNote}
     />
