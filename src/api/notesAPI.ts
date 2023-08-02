@@ -33,4 +33,16 @@ export const notesAPI = {
     this.setNewNotes(notes);
     return notes;
   },
+
+  toggleIsEditNote(id: number, status: boolean): INote[] {
+    const notes: INote[] = this.getNewNotes();
+    notes.map((item) => {
+      if (item.id === id) {
+        item.isEdit = status;
+      }
+      return item;
+    });
+    this.setNewNotes(notes);
+    return notes;
+  },
 };

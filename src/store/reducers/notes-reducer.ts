@@ -13,25 +13,6 @@ const initialState: INotesState = {
 
 const notesReducer = (state = initialState, action: NotesActions): INotesState => {
   switch (action.type) {
-    /*
-    case NotesActionTypes.ADD_NOTE:
-      const newNote = {
-        id: state.Notes.length + 1,
-        title: state.newTitleBody,
-        description: state.newDescriptionBody,
-        tags: state.newTags,
-        isEdit: false,
-      };
-
-      return {
-        ...state,
-        newTitleBody: '',
-        newDescriptionBody: '',
-        newTags: [],
-        Notes: [...state.Notes, newNote],
-        Tags: [...new Set([...state.Tags].concat(newNote.tags))],
-      };
-*/
     case NotesActionTypes.SET_NEW_TITLE:
     case NotesActionTypes.UPDATE_NEW_TITLE:
       return {

@@ -34,7 +34,7 @@ const Form: React.FC<FormProps> = (props) => {
                   className="input-text"
                   type="text"
                   value={props.currentNewTitle}
-                  onChange={props.onNewTitleChanged}
+                  onChange={(e) => props.onNewTitleChanged(e)}
                 />
               </div>
               {props.isNewErrorTitle && <Error message={ErrorMesages.ERROR__TITLE_MESSAGE} />}
@@ -49,7 +49,7 @@ const Form: React.FC<FormProps> = (props) => {
                   className="textarea"
                   rows={5}
                   value={props.currentNewDescription}
-                  onChange={props.onNewDescriptionChanged}
+                  onChange={(e) => props.onNewDescriptionChanged(e)}
                 />
               </div>
               {props.isNewErrorDescription && (

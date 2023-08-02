@@ -68,3 +68,10 @@ export const addNote = (newNote: INote) => {
     dispatch({ type: NotesActionTypes.UPDATE_NOTES, payload: notes });
   };
 };
+
+export const toggleIsEditNote = (id: number, status: boolean) => {
+  return (dispatch: Dispatch<NotesActions>) => {
+    const updatedNotes = notesAPI.toggleIsEditNote(id, status);
+    dispatch({ type: NotesActionTypes.UPDATE_NOTES, payload: updatedNotes });
+  };
+};

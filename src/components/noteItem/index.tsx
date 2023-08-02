@@ -3,28 +3,52 @@ import TagsList from '../tagsList';
 import { AiOutlineCloseCircle, AiFillEdit } from 'react-icons/ai';
 import './note-item.scss';
 
-const NoteItem = () => {
+interface INoteProps {
+  id: number;
+  title: string;
+  index: number;
+  description: string;
+  isNewErrorNoteTitle: boolean;
+  isNewErrorNoteDescription: boolean;
+  tags: string[] | null;
+  isEdit: boolean;
+  onEditClick: (id: number, status: boolean) => void;
+}
+
+const NoteItem: React.FC<INoteProps> = (props) => {
   return (
     <div className="note-item">
-      <div className="note-item__order">1</div>
+      <div className="note-item__order">{props.index}</div>
       <div className="note-item__content">
-        <h3 className="note-item__title">Title 1</h3>
-        <input type="text" className="input-text" value={''} />
-        <div className="note-item__description">
-          quality and professional print - It doesnt just look high quality, it is high quality.
-        </div>
-        <textarea className="textarea" value={''} rows={5}></textarea>
+        {props.isEdit ? (
+          <input type="text" className="input-text" value={props.title} onChange={() => {}} />
+        ) : (
+          <h3 className="note-item__title">{props.title}</h3>
+        )}
+        {props.isEdit ? (
+          <textarea className="textarea" value={props.description} rows={5} onChange={() => {}} />
+        ) : (
+          <div className="note-item__description">{props.description}</div>
+        )}
+
         <div className="note-item__tags">
           <TagsList />
         </div>
       </div>
       <div className="note-item__controls">
         <div className="note-item__icons">
-          <AiFillEdit size={25} className="note-item__edit-icon" />
-          <AiOutlineCloseCircle size={25} className="note-item__delete-icon" />
+          {!props.isEdit && (
+            <AiFillEdit
+              size={25}
+              className="note-item__edit-icon"
+              onClick={() => props.onEditClick(props.id, true)}
+            />
+          )}
+
+          {!props.isEdit && <AiOutlineCloseCircle size={25} className="note-item__delete-icon" />}
         </div>
         <div className="note-item__buttons">
-          <button className="button button_small">Save</button>
+          {props.isEdit && <button className="button button_small">Save</button>}
         </div>
       </div>
     </div>
