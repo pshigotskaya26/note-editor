@@ -14,12 +14,18 @@ interface INoteItemContainer {
 }
 
 const NoteItemContainer: React.FC<INoteItemContainer> = (props) => {
-  const { toggleIsEditNote } = useActions();
+  const { toggleIsEditNote, deleteNoteItem } = useActions();
 
-  const onEditClick = (id: number, status: boolean) => {
+  const onEditNoteClick = (id: number, status: boolean) => {
     toggleIsEditNote(id, status);
   };
-  return <NoteItem {...props} onEditClick={onEditClick} />;
+
+  const onDeleteNoteClick = (id: number) => {
+    deleteNoteItem(id);
+  };
+  return (
+    <NoteItem {...props} onEditNoteClick={onEditNoteClick} onDeleteNoteClick={onDeleteNoteClick} />
+  );
 };
 
 export default NoteItemContainer;

@@ -45,4 +45,11 @@ export const notesAPI = {
     this.setNewNotes(notes);
     return notes;
   },
+
+  deleteNoteItem(id: number): INote[] {
+    const notes: INote[] = this.getNewNotes();
+    const updatedNotes = notes.filter((item) => item.id !== id);
+    this.setNewNotes(updatedNotes);
+    return updatedNotes;
+  },
 };
