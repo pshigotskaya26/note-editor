@@ -1,46 +1,46 @@
-# Getting Started with Create React App
+# Notes Manager
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description of the project:
 
-## Available Scripts
+Notes Manager is a project, where you can create, edit and remove a note.
 
-In the project directory, you can run:
+**Done**:
 
-### `npm start`
+- create and use container components (use mapStateToProps, connect)
+- localStorage as API
+- saving all information when the page is reloaded
+- validation of the form fields
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### App structure
 
-### `npm test`
+The application consists of next page:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- a main page
 
-### `npm run build`
+**On the main page** you can:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- create, edit and remove a note.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Setup and Running:
 
-### `npm run eject`
+- Clone this repo in other folder: `https://github.com/pshigotskaya26/note-editor.git`.
+- Go to downloaded folder: `$ cd note-editor`.
+- Checkout branch on `$ git checkout note-editor`
+- Install dependencies: `$ npm install`.
+- Start project: `$ npm run start`.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Used technologies:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- React
+- Redux, Redux-thunk
+- TypeScript
+- Sass
+- HTML
+- Eslint
+- Prettier
