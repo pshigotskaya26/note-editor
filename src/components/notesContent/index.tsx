@@ -7,7 +7,7 @@ const NotesContent = () => {
     <section className="notes-content">
       <div className="container">
         <h2 className="notes-content__title">Notes List:</h2>
-        <div className="notes-content__tags">Block tags for filter</div>
+        {/* <div className="notes-content__tags">Block tags for filter</div> */}
         <div className="notes-content__list">
           <NoteListContainer />
         </div>
