@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/note-editor/static/css/main.78778c5e.css",
+    "main.js": "/note-editor/static/js/main.da724bd0.js",
+    "static/js/787.69963b0f.chunk.js": "/note-editor/static/js/787.69963b0f.chunk.js",
+    "static/media/ralewayregular.ttf": "/note-editor/static/media/ralewayregular.bd114be766dbe230e581.ttf",
+    "static/media/ralewayregular.woff": "/note-editor/static/media/ralewayregular.b8a7982c95c6ffb93ae6.woff",
+    "static/media/ralewayregular.woff2": "/note-editor/static/media/ralewayregular.dd127afe43911e754544.woff2",
+    "static/media/icon-github.svg": "/note-editor/static/media/icon-github.c808c892b335d757ec45.svg",
+    "index.html": "/note-editor/index.html",
+    "main.78778c5e.css.map": "/note-editor/static/css/main.78778c5e.css.map",
+    "main.da724bd0.js.map": "/note-editor/static/js/main.da724bd0.js.map",
+    "787.69963b0f.chunk.js.map": "/note-editor/static/js/787.69963b0f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.78778c5e.css",
+    "static/js/main.da724bd0.js"
+  ]
+}
