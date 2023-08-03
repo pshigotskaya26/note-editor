@@ -7,9 +7,17 @@
   align-items: center;
   padding: 1.5rem 1rem;
 
+  @media (max-width: 370px) {
+    flex-wrap: wrap;
+  }
+
   &__order {
     width: 8rem;
     text-align: center;
+
+    @media (max-width: 460px) {
+      width: 2rem;
+    }
   }
 
   &__controls {
@@ -17,6 +25,10 @@
     flex-direction: column;
     row-gap: 1rem;
     width: 10rem;
+
+    @media (max-width: 370px) {
+      width: 7rem;
+    }
   }
 
   &__content {
@@ -25,6 +37,10 @@
     row-gap: 1rem;
     flex: 1 1 auto;
     padding: 0 1rem;
+
+    @media (max-width: 460px) {
+      flex: 0 0 auto;
+    }
   }
 
   &__description {

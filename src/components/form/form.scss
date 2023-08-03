@@ -12,6 +12,10 @@
   &__content {
     display: flex;
     column-gap: 3rem;
+
+    @media (max-width: 569px) {
+      flex-direction: column;
+    }
   }
 
   &__elements {
@@ -19,10 +23,18 @@
     flex-direction: column;
     row-gap: 2rem;
     flex: 0 1 40rem;
+
+    @media (max-width: 569px) {
+      flex: 0 0 auto;
+    }
   }
 
   &__buttons {
     padding-top: 3rem;
+
+    @media (max-width: 569px) {
+      padding-top: 1rem;
+    }
   }
 }
 
